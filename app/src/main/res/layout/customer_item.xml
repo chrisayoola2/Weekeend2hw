@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:layout_marginStart="4dp"
+    android:layout_marginEnd="4dp">
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/darker_gray"
+    android:padding="4dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Celebrity Name"
+        android:id="@+id/tvCelebrityName"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/holo_orange_dark"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvDescription"
+        android:textSize="15dp"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/tvCelebrityName"
+        android:backgroundTint="@color/cardview_dark_background"
+        android:text="Tall Actor"/>
+
+    <TextView
+        android:id="@+id/tvFameLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:textColor="@android:color/black"
+        android:text="1"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_btnDelete"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/tvFameLevel"
+        android:background="@drawable/ic_remove_circle_outline_black_24dp"
+        android:backgroundTint="@android:color/holo_red_dark"
+
+       />
+
+    <ImageButton
+        android:id="@+id/img_btnUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvCelebrityName"
+        android:layout_marginTop="-7dp"
+        android:layout_marginRight="14dp"
+        android:layout_toLeftOf="@id/img_btnDelete"
+        android:background="@drawable/ic_mode_write_24dp" />
+
+
+</RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>

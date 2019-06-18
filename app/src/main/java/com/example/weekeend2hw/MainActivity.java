@@ -7,6 +7,7 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.text.style.UpdateAppearance;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -35,7 +36,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final int ADD_CELEB_REQUEST_FROM_MAIN = 1; //request code
-    //public static final int UPDATE_CELEB_REQUEST_FROM_MAIN = 2;
+    public static final int UPDATE_CELEB_REQUEST_FROM_MAIN = 2;//request code
     private CelebrityViewModel celebrityViewModel;
 
 
@@ -75,13 +76,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }).attachToRecyclerView(recyclerView);
 
+
        adapter.setOnItemClickListener(new CelebrityAdapter.OnitemClickListener() {
            @Override
            public void onItemClick(Celebrity celebrity) {
-               Intent intent = new Intent(getApplicationContext(),AddCelebrityActivity.class);
-               intent.putExtra(AddCelebrityActivity.EXTRA_CELEBNAME, celebrity.getCelebrityName());
-               intent.putExtra(AddCelebrityActivity.EXTRA_CELEBDESCRIPTION, celebrity.getProfession());
-               intent.putExtra(AddCelebrityActivity.EXTRA_CELEBFAMELEVEL, celebrity.getFameLevel());
+               Intent intent = new Intent(MainActivity.this,EditCelebrityActivity.class);
+               intent.putExtra(EditCelebrityActivity.EXTRA_CELEBNAME, celebrity.getCelebrityName());
+               intent.putExtra(EditCelebrityActivity.EXTRA_CELEBDESCRIPTION, celebrity.getProfession());
+               intent.putExtra(EditCelebrityActivity.EXTRA_CELEBFAMELEVEL, celebrity.getFameLevel());
+               startActivityForResult(intent, UPDATE_CELEB_REQUEST_FROM_MAIN);
 
            }
        });
@@ -112,7 +115,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             celebrityViewModel.insert(thisCelebrity);
 
             Toast.makeText(this, "Celebrity Saved", Toast.LENGTH_SHORT).show();
-        } else {
+        } else if(requestCode == UPDATE_CELEB_REQUEST_FROM_MAIN && resultCode == RESULT_OK){
+            String name = data.getStringExtra(EditCelebrityActivity.EXTRA_CELEBNAME);
+            String profession = data.getStringExtra((EditCelebrityActivity.EXTRA_CELEBDESCRIPTION));
+            int fameLevel = data.getIntExtra(EditCelebrityActivity.EXTRA_CELEBFAMELEVEL, 1);
+
+            Celebrity thisCelebrity = new Celebrity(name, profession, fameLevel);
+            celebrityViewModel.update(thisCelebrity);
+
+
+        }
+        else {
             Toast.makeText(this, "Celebrity Not Saved", Toast.LENGTH_SHORT).show();
 
         }

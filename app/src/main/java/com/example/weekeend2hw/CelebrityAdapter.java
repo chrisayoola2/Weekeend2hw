@@ -66,12 +66,11 @@ public class CelebrityAdapter extends RecyclerView.Adapter<CelebrityAdapter.Cele
             public void onClick(View v) {
 
                 String item = currentCelebrity.getCelebrityName();
-                //int newPosition = holder.getAdapterPosition();
+
                 celebrity.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position, celebrity.size());
 
-                // Toast.makeText(MainActivity.this,"Removed : "+item ,Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -13,6 +13,10 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="celebrity_name">Celebrity Name</string>
+    <string name="celebrity_profession">Celebrity Profession</string>
+    <string name="load">LOAD</string>
+    <string name="save">SAVE</string>
 
 
 </resources>

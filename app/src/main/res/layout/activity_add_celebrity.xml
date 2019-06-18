@@ -12,13 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/etEditCelebrity"
-        android:hint="Celebrity Name"
+        android:hint="@string/celebrity_name"
         android:inputType="text"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/etCelebrityDescription"
-        android:hint="Celebrity Profession"
+        android:hint="@string/celebrity_profession"
         android:inputType="text"/>
     <TextView
         android:layout_width="match_parent"

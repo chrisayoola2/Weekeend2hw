@@ -13,7 +13,6 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 public abstract class CelebrityDatabase extends RoomDatabase {
 
     private static CelebrityDatabase instance;// turns this class into a singleton
-
     public abstract CelebrityDao celebrityDao();  // use to access DAO
 
     public static synchronized CelebrityDatabase getInstance(Context context){ // makes singleton only one thread at a time can access.

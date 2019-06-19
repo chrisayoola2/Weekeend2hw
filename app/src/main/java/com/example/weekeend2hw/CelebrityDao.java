@@ -25,6 +25,7 @@ public interface CelebrityDao {
     void deleteAllCelebrity();
 
     @Query("SELECT * FROM celebrity_table ORDER BY celebrityName ASC")
+
     LiveData<List<Celebrity>> getAllCelebrity();
 
 
